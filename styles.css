@@ -1,0 +1,553 @@
+/* ================================
+   THEME VARIABLES
+================================ */
+/* ================================
+   THEME MENU – GLASS / APPLE STYLE
+================================ */
+
+.theme-wrapper {
+  position: relative;
+}
+
+.theme-menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  width: 220px;
+  padding: 14px;
+
+  background: color-mix(in srgb, var(--panel), transparent 25%);
+  backdrop-filter: blur(20px);
+
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+
+  display: none;
+  z-index: 999;
+}
+
+/* Individual theme options */
+.theme-menu button {
+  width: 100%;
+
+  background: color-mix(in srgb, var(--panel), white 6%);
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 70%);
+  color: var(--text);
+
+  padding: 12px 14px;
+  border-radius: 14px;
+
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+/* Hover effect – matches contact inputs */
+.theme-menu button:hover {
+  background: color-mix(in srgb, var(--panel), white 10%);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Active / focus feel */
+.theme-menu button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--accent), transparent 65%);
+}
+.theme-ember {
+  /* Warm, soft dark — NOT pure black */
+  --bg: #0f1113;
+  --panel: #181b1f;
+  --nav: rgba(15, 17, 19, 0.92);
+
+  /* Ember orange (warmer, richer) */
+  --accent: #ff8f2d;
+
+  /* Softer whites for readability */
+  --text: #f5f7fa;
+  --muted: #a8adb3;
+}
+.theme-ocean {
+  --accent: #1fa2ff;
+  --bg: #071821;
+  --panel: #0d2532;
+  --nav: rgba(7,24,33,0.92);
+  --text: #ffffff;
+  --muted: #94b8d4;
+}
+
+.theme-circuit {
+  --accent: #00ff8c;
+  --bg: #06140f;
+  --panel: #0b2219;
+  --nav: rgba(6,20,15,0.92);
+  --text: #ffffff;
+  --muted: #9beec6;
+}
+
+.theme-violet {
+  --accent: #9b6bff;
+  --bg: #120a1f;
+  --panel: #1c1230;
+  --nav: rgba(18,10,31,0.92);
+  --text: #ffffff;
+  --muted: #c2b4ff;
+}
+
+.theme-rose {
+  --accent: #ff5f87;
+  --bg: #160a10;
+  --panel: #241018;
+  --nav: rgba(22,10,16,0.92);
+  --text: #ffffff;
+  --muted: #ffb9c9;
+}
+
+/* ================================
+   BASE STYLES
+================================ */
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ================================
+   NAVBAR
+================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--nav);
+  backdrop-filter: blur(10px);
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.primary {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px color-mix(in srgb, var(--accent), transparent 60%);
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 65%);
+  color: var(--text);
+  padding: 12px 22px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.ghost:hover {
+  border-color: var(--accent);
+}
+
+/* ================================
+   SECTIONS
+================================ */
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+.section-subtitle {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: var(--muted);
+  font-size: 15px;
+}
+/* ================================
+   TABS & DASHBOARD
+================================ */
+.tabs {
+  margin-top: 20px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: var(--muted);
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+.tab-content {
+  display: none;
+  margin-top: 30px;
+}
+
+.tab-content.active {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.card {
+  background: var(--panel);
+  padding: 22px;
+  border-radius: 16px;
+}
+
+/* ================================
+   CONTACT FORM (APPLE‑LIKE)
+================================ */
+/* ================================
+   CONTACT SECTION LAYOUT FIX
+================================ */
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Force vertical stacking */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 520px;
+  gap: 14px;
+
+  background: color-mix(in srgb, var(--panel), transparent 20%);
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* Inputs match site rhythm */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  min-height: 48px;
+
+  background: color-mix(in srgb, var(--panel), white 6%);
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 75%);
+  color: var(--text);
+
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-size: 15px;
+  line-height: 1.4;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Textarea should be vertical, not stretched */
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Apple-like focus behaviour */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--panel), white 10%);
+  box-shadow: 0 0 0 4px
+    color-mix(in srgb, var(--accent), transparent 65%);
+}
+
+/* Button aligned with form */
+.contact-form button {
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+/* ================================
+   SCROLL ANIMATIONS
+================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================
+   ROI CALCULATOR – GLASS / APPLE STYLE
+================================ */
+
+.roi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.roi-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  width: 100%;
+  max-width: 420px;
+
+  background: color-mix(in srgb, var(--panel), transparent 20%);
+  backdrop-filter: blur(20px);
+
+  padding: 36px;
+  border-radius: 24px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Labels */
+.roi-box label {
+  font-size: 14px;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* Inputs */
+.roi-box input {
+  width: 100%;
+  min-height: 48px;
+
+  background: color-mix(in srgb, var(--panel), white 6%);
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 75%);
+  color: var(--text);
+
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  font-size: 15px;
+  line-height: 1.4;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Focus state – matches Contact form */
+.roi-box input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--panel), white 10%);
+  box-shadow: 0 0 0 4px
+    color-mix(in srgb, var(--accent), transparent 65%);
+}
+
+/* Calculate button spacing */
+.roi-box button {
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+/* Result display */
+.roi-result {
+  margin-top: 18px;
+  padding: 14px 16px;
+
+  background: color-mix(in srgb, var(--panel), transparent 30%);
+  border-radius: 14px;
+
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--accent);
+  text-align: left;
+}
+
+
+/* ================================
+   SECTION STRUCTURE FIX
+   (ROI + CONTACT)
+================================ */
+
+/* Force vertical rhythm */
+.roi,
+.contact {
+  display: block;
+  padding-top: 100px;
+  padding-bottom: 120px;
+}
+
+/* Headings spacing */
+.roi h2,
+.contact h2 {
+  margin-bottom: 12px;
+}
+
+/* Description text spacing */
+.roi p,
+.contact p {
+  max-width: 560px;
+  margin: 0 auto 32px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Card positioning */
+.roi-box,
+.contact-form {
+  margin: 0 auto;
+}
+
+/* ================================
+   FOOTER – CERTIFLOW STYLE
+================================ */
+
+.site-footer {
+  background: color-mix(in srgb, var(--panel), transparent 10%);
+  backdrop-filter: blur(20px);
+  padding: 80px 40px 30px;
+  margin-top: 120px;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.footer-desc {
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer-col a {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid
+    color-mix(in srgb, var(--accent), transparent 80%);
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trust {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.trust strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.live-feed {
+  margin-top: 30px;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.live-feed li {
+  padding: 10px 0;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--accent), transparent 85%);
+}
+
+.savings-list {
+  list-style: none;
+  margin: 30px auto 0;
+  padding: 0;
+  max-width: 420px;
+}
+
+.savings-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  color: var(--muted);
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--accent), transparent 85%);
+}
+
+.savings-list strong {
+  color: var(--accent);
+}

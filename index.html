@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certiflow360</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="theme-ember">
+
+<header class="navbar">
+  <div class="logo">⚡ Certiflow360</div>
+
+  <nav>
+    <a href="#platform">Platform</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#roi">ROI</a>
+    <a href="#solutions">Solutions</a>
+  </nav>
+
+  <div class="actions">
+    <div class="theme-wrapper">
+  <button id="themeToggle" class="ghost">
+    Theme ▾
+  </button>
+
+  <div class="theme-menu" id="themeMenu">
+    <button onclick="setTheme('ember')">🔥 Ember Black</button>
+    <button onclick="setTheme('ocean')">🌊 Ocean Dark</button>
+    <button onclick="setTheme('circuit')">🟢 Circuit Green</button>
+    <button onclick="setTheme('violet')">🟣 Deep Violet</button>
+    <button onclick="setTheme('rose')">🌸 Steel Rose</button>
+  </div>
+</div>
+
+    <button class="ghost">Log in</button>
+    <button class="primary" onclick="scrollToSection('contact')">
+      Book a Demo
+    </button>
+  </div>
+</header>
+
+<section class="hero reveal" id="platform">
+  <span class="tag">LIVE OPERATIONS</span>
+  <h1>Compliance without the paperwork overhead</h1>
+  <p>
+    Certiflow360 delivers real‑time fleet intelligence, predictive risk alerts,
+    and automated compliance for logistics operations across Southern Africa.
+  </p>
+
+  <div class="cta">
+    <button class="primary glow" onclick="scrollToSection('contact')">
+      Book a Demo →
+    </button>
+    <button class="ghost" onclick="scrollToSection('dashboard')">
+      View Platform
+    </button>
+  </div>
+  <div class="trust">
+  <span><strong>98.5%</strong> Uptime SLA</span>
+  <span><strong>2.4M+</strong> Km Tracked Daily</span>
+  <span><strong>340+</strong> Fleet Partners</span>
+</div>
+</section>
+
+<section class="dashboard reveal" id="dashboard">
+  <h2>Your entire fleet, at a glance</h2>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('live', this)">Live Ops</button>
+    <button class="tab" onclick="switchTab('risk', this)">Risk & Safety</button>
+    <button class="tab" onclick="switchTab('cost', this)">Cost & Fuel</button>
+  </div>
+
+  <div id="live" class="tab-content active reveal-stagger">
+    <div class="card">
+      <h4>Active Fleet</h4>
+      <strong>247</strong>
+    </div>
+    <div class="card">
+      <h4>Open Alerts</h4>
+      <strong>3</strong>
+    </div>
+    <div class="card">
+      <h4>Monthly Savings</h4>
+      <strong>R 847,250</strong>
+    </div>
+  
+ <ul class="live-feed">
+    <li>Vehicle CF‑247 entered Durban Port · 2s ago</li>
+    <li>Route optimisation completed for N3 · 45s ago</li>
+    <li>Driver rest alert: ID‑1842 · 2m ago</li>
+    <li>Fuel anomaly detected: CF‑189 · 5m ago</li>
+    <li>Delivery confirmed: JHB‑Central · 8m ago</li>
+  </ul>
+
+  </div>
+
+  <div id="risk" class="tab-content">
+    <p>Driver fatigue, weather warnings, maintenance alerts.</p>
+  </div>
+
+  <div id="cost" class="tab-content">
+    <p>Fuel savings, idle reduction, route optimisation.</p>
+    <ul class="savings-list">
+  <li><span>Route optimisation</span><strong>R 312,400</strong></li>
+  <li><span>Idle reduction</span><strong>R 245,850</strong></li>
+  <li><span>Driver coaching</span><strong>R 189,000</strong></li>
+  <li><span>Theft prevention</span><strong>R 100,000</strong></li>
+</ul>
+  </div>
+</section>
+
+<section class="roi reveal" id="roi">
+  <h2>Calculate your potential savings</h2>
+
+  <div class="roi-box">
+    <label>Fleet Size</label>
+    <input type="number" id="fleetSize" value="50">
+
+    <label>Monthly Fuel Spend (R)</label>
+    <input type="number" id="fuelSpend" value="500000">
+
+    <button class="primary" onclick="calculateROI()">Calculate ROI</button>
+
+    <div class="roi-result" id="roiResult">—</div>
+  </div>
+</section>
+
+<section class="features reveal" id="solutions">
+  <h2>Built for how you operate</h2>
+  <p class="section-subtitle">
+    Purpose‑built solutions for the unique challenges of Southern African logistics.
+  </p>
+
+  <div class="feature-grid reveal-stagger">
+    <div class="feature">
+      <strong>Long Haul Logistics</strong>
+      <small>Optimised for N3/N1 corridor operations with real‑time visibility.</small>
+    </div>
+
+    <div class="feature">
+      <strong>Last Mile Delivery</strong>
+      <small>Urban delivery optimisation with dynamic routing and proof of delivery.</small>
+    </div>
+
+    <div class="feature">
+      <strong>Cold Chain</strong>
+      <small>Temperature‑controlled logistics with continuous monitoring and alerts.</small>
+    </div>
+  </div>
+</section>
+
+<section class="contact reveal" id="contact">
+  <h2>Book a Demo</h2>
+
+  <form class="contact-form">
+    <input type="text" placeholder="Company Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <textarea placeholder="Tell us about your operation"></textarea>
+    <button class="primary glow" type="submit">Submit</button>
+  </form>
+</section>
+
+
+<footer class="site-footer reveal">
+  <div class="footer-grid">
+
+    <div class="footer-col">
+      <h3>Certiflow360</h3>
+      <p class="footer-desc">
+        Fleet intelligence platform for logistics operations across Southern Africa.
+        Real‑time visibility, predictive analytics, automated compliance.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="#platform">Platform</a>
+      <a href="#dashboard">Features</a>
+      <a href="#roi">Pricing</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <a href="#solutions">Long Haul</a>
+      <a href="#solutions">Last Mile</a>
+      <a href="#solutions">Cold Chain</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Security</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Certiflow360. All rights reserved.
+  </div>
+</footer>
+<!-- FIXED -->
+<script src="script.js"></script>
+
+
+</body>
+</html>
